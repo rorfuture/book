@@ -1,0 +1,30 @@
+<h1>New Article</h1>
+
+<%= form_with model: @article do |form| %>
+    <table>
+      <tr>
+        <td>
+          Title
+        <td>
+        <td>
+          Description
+        <td>
+        <td>
+          Action
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= form.text_field :title %>
+        <td>
+        <td>
+          <%= form.text_field :description %>
+        <td>
+          <td>
+        <%= form.submit %>
+        </td>
+      </tr>
+    </table>
+    <% end %>
+  
+  

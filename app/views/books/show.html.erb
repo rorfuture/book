@@ -1,0 +1,20 @@
+<center>
+<h1>Title : <%= @book.title %></h1
+<h2>By : <%= @book.user.first_name %> <%= @book.user.last_name %></h2>
+</center>
+<% @article.each do |article|%>
+  <button class="btn" data-bs-toggle="collapse" data-bs-target="#article<%=article.id%>"><%= article.title %></button>
+  <div id="article<%=article.id%>" class="collapse">
+    <%= article.description%><br>
+    <a href="/articles/<%= article.id %>">Edit</a>
+    <a href="/articles/<%= article.id %>">Delete</a>
+    <h6>
+      <%=article.likes.count %> Likes | <%=article.comments.count %> Comments
+    </h6>
+    <h6>Comments</h6>
+    <% article.comments.each do |comment| %>
+    <pre> <%= comment.body %></pre>
+    <% end %>
+  </div>
+  <hr>
+<% end %>

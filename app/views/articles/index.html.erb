@@ -1,0 +1,41 @@
+<h1>Articles</h1>
+<table class="table-responsive table">
+    <tr>
+      <th>
+        S.N.
+      <th>
+      <th>
+        Title
+      </th>
+      <th>
+      Description
+      </th>
+      <th colspan = 3>
+      Action
+      <th>
+    </tr>
+    <% @articles.each_with_index do |article, index| %>
+      <tr>
+        <td>
+          <%= index%>
+        </td>
+        <td>
+        <%= link_to article.title, article %>
+        <td>
+        <td>
+        <%= link_to article.description, article %>
+        </td>
+        <td>
+          Show
+        </td>
+        <td>
+          Edit
+        </td>
+        <td>
+          Destroy
+        </td>
+      </tr>
+    <% end %>
+    
+</table>
+<%= link_to "New Article", new_article_path %>

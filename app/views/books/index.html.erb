@@ -1,0 +1,30 @@
+<center>
+  <h1>Books</h1>
+  <%= link_to "New book", new_book_path %>
+</center>
+  <div class = "row">
+    <% @books.each_with_index do |book, index| %>
+      <div class = "col">
+        <div class="card" style="width:250px">
+          <img class="card-img-top" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457" alt="Card image" style="height:300px">
+          <div class="card-body">
+            <center>
+              <h3 class="card-title"><%= book.title%></h3>
+              <h4 class="card-text">By: <%= book.user.first_name%> <%= book.user.last_name%></h4>
+              <h5>Ratting: 
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </h5>
+              <p class="card-text"><%= book.description%></p>
+              <%= link_to 'Read', book, class: "btn btn-success" %>
+              <%= link_to 'Edit', edit_book_path(book.id), class: "btn btn-primary" %>
+              <a href="#" class="btn btn-danger">Destroy</a>
+            </center>
+          </div>
+        </div>
+      </div>    
+    <% end %>
+  </div>

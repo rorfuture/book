@@ -1,0 +1,40 @@
+<%= form_with model: @book do |form| %>
+  <table>
+    <tr>
+      <td>
+        Title
+      <td>
+      <td>
+        Description
+      <td>
+      <td>
+        Image Url
+      <td>
+      <td>
+        Action
+      </td>
+    </tr>
+    <td>
+    <%= form.text_field :title %>
+    <% @book.errors.full_messages_for(:title).each do |message| %>
+      <span class="text-danger"><%= message %></span>
+    <% end %>
+      <td>
+      <td>
+        <%= form.text_field :description %>
+        <% @book.errors.full_messages_for(:title).each do |message| %>
+          <span class="text-danger"><%= message %></span>
+        <% end %>
+      <td>
+      <td>
+        <%= form.text_field :cover %>
+        <% @book.errors.full_messages_for(:cover).each do |message| %>
+          <span class="text-danger"><%= message %></span>
+        <% end %>
+      <td>
+      <td>
+      <%= form.submit %>
+      </td>
+    </tr>
+  </table>
+<% end %>

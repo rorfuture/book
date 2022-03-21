@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_20_144126) do
+ActiveRecord::Schema.define(version: 2022_03_21_042846) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "user_id"
+    t.integer "book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.text "description"
+    t.string "cover"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "likeable_type"
+    t.integer "likeable_id"
+    t.boolean "is_liked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

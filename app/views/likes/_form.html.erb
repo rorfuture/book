@@ -1,0 +1,5 @@
+<%= form_with model: [ @article, @article.likes.build ], :remote => true do |form| %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

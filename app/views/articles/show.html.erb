@@ -1,0 +1,23 @@
+<style>
+body,p, h5{
+  padding: 10px;
+}
+
+</style>
+<b> Title : </b>
+<h5><%= @article.title %></h5>
+<b> Description : </b>
+<p><%= @article.description %></p>
+
+<%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary" %>
+<%= link_to "Destroy", article_path(@article), class:"btn btn-primary", data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+<a href="/articles" class="btn btn-primary"> Back</a>
+<br>Total Likes : <%= @article.likes.count%>
+<br>Total Comments : <%= @article.comments.count%>
+<%= render '/likes/form'%>
+<h2>Comments</h2>
+<%= render @article.comments%>
+<%= render '/comments/form'%>
