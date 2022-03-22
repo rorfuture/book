@@ -1,6 +1,7 @@
 <center>
   <h1>Books</h1>
   <%= link_to "New book", new_book_path %>
+  <%= turbo_frame_tag "new_book", src: new_book_path(@book), target: "_top" %>
 </center>
   <div class = "row">
     <% @books.each_with_index do |book, index| %>

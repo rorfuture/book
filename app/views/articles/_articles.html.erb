@@ -1,0 +1,8 @@
+<%= article_tag :div do %>
+	<em>Someone Write <%= time_ago_in_words(article.created_at)%></em>
+	Title: <%= article.title %>
+	<hr>
+	Description: <%= article.description %>
+	<hr>
+	<hr>
+  <% end %>

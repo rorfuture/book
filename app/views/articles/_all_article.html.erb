@@ -17,7 +17,7 @@
     <% @book.articles.each_with_index do |article, index| %>
       <tr>
         <td>
-          <%= index%>
+          <%= index %>
         </td>
         <td>
         <%= link_to article.title, article %>
@@ -29,7 +29,7 @@
         <%= link_to 'Show', article %>
         </td>
         <td>
-        <%= link_to 'Edit', edit_article_path(article) %>
+        <%#= link_to 'Edit', edit_article_path(article) %>
         </td>
         <td>
           Destroy
