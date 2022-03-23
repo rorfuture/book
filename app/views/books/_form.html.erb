@@ -1,40 +1,21 @@
 <%= form_with model: @book do |form| %>
-  <table>
-    <tr>
-      <td>
-        Title
-      <td>
-      <td>
-        Description
-      <td>
-      <td>
-        Image Url
-      <td>
-      <td>
-        Action
-      </td>
-    </tr>
-    <td>
-    <%= form.text_field :title %>
+  <div class="mb-3 mt-3">
+    <%= form.label :title, class:"form-label"%>
+    <%= form.text_field :title, class:"form-control form-control-lg"%>
     <% @book.errors.full_messages_for(:title).each do |message| %>
       <span class="text-danger"><%= message %></span>
     <% end %>
-      <td>
-      <td>
-        <%= form.text_field :description %>
-        <% @book.errors.full_messages_for(:title).each do |message| %>
-          <span class="text-danger"><%= message %></span>
-        <% end %>
-      <td>
-      <td>
-        <%= form.text_field :cover %>
-        <% @book.errors.full_messages_for(:cover).each do |message| %>
-          <span class="text-danger"><%= message %></span>
-        <% end %>
-      <td>
-      <td>
-      <%= form.submit %>
-      </td>
-    </tr>
-  </table>
+  </div>
+  <div class="mb-3 mt-3">
+    <%= form.label :dscription, class:"form-label"%>
+    <%= form.text_field :dscription, class:"form-control form-control-lg"%>
+    <% @book.errors.full_messages_for(:dscription).each do |message| %>
+      <span class="text-danger"><%= message %></span>
+    <% end %>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <%= form.submit class:"btn btn-primary"%>
+  </div>
 <% end %>
+

@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   
     def show
       @book = Book.find(params[:id])
-      @article = @book.articles
+      @articles = @book.articles
     end
   
     def new
@@ -28,7 +28,6 @@ class BooksController < ApplicationController
     end
   
     def update
-      byebug
       @book = Book.find(params[:id])
       if @book.update!(book_params)
         redirect_to @book

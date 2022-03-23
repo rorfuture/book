@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    byebug
     @book = Book.find(params[:book_id])
     @article = @book.articles.new(article_params)
     @article.user_id = current_user.id

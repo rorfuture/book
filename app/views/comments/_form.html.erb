@@ -1,10 +1,9 @@
 <h2>Add a comment:</h2>
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="mb-3 mt-3">
+    <%= form.text_area :body, class:"form-control form-control-lg"%>
+  </div>
+  <div class="mb-3 mt-3">
+    <%= form.submit class:"btn btn-primary"%>
+  </div>
 <% end %>

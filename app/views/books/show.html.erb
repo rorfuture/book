@@ -2,7 +2,8 @@
 <h1>Title : <%= @book.title %></h1
 <h2>By : <%= @book.user.first_name %> <%= @book.user.last_name %></h2>
 </center>
-<% @article.each do |article|%>
+<hr>
+<% @articles.each do |article|%>
   <button class="btn" data-bs-toggle="collapse" data-bs-target="#article<%=article.id%>"><%= article.title %></button>
   <div id="article<%=article.id%>" class="collapse">
     <%= article.description%><br>
@@ -11,9 +12,13 @@
     <h6>
       <%=article.likes.count %> Likes | <%=article.comments.count %> Comments
     </h6>
+    <% @article = article%>
+    <%= render 'comments/form'%>
     <h6>Comments</h6>
     <% article.comments.each do |comment| %>
-    <pre> <%= comment.body %></pre>
+    <pre>
+    <%= User.find(comment.user_id).first_name if comment.user_id %> 
+      <%= comment.body %></pre>
     <% end %>
   </div>
   <hr>

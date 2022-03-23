@@ -1,27 +1,22 @@
 <%= form_with model: [ @book, @book.articles.build ] do |form| %>
-  <table>
-    <tr>
-      <td>
-        Title
-      <td>
-      <td>
-        Description
-      <td>
-      <td>
-        Action
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= form.text_field :title %>
-      <td>
-      <td>
-        <%= form.text_field :description %>
-      <td>
-        <td>
-      <%= form.submit %>
-      </td>
-    </tr>
-  </table>
+  <div class="mb-3 mt-3">
+    <%= form.label :title, class:"form-label"%>
+    <%= form.text_field :title, class:"form-control form-control-lg"%>
+    <% @book.errors.full_messages_for(:title).each do |message| %>
+      <span class="text-danger"><%= message %></span>
+    <% end %>
+  </div>
+  <div class="mb-3 mt-3">
+    <%= form.label :description, class:"form-label"%>
+    <%= form.text_field :description, class:"form-control form-control-lg"%>
+    <% @book.errors.full_messages_for(:description).each do |message| %>
+      <span class="text-danger"><%= message %></span>
+    <% end %>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <%= form.submit class:"btn btn-primary"%>
+  </div>
+  
   <% end %>
 
