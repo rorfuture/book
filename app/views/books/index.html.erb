@@ -22,7 +22,7 @@
               <p class="card-text"><%= book.description%></p>
               <%= link_to 'Read', book, class: "btn btn-success" %>
               <%= link_to 'Edit', edit_book_path(book.id), class: "btn btn-primary" %>
-              <a href="#" class="btn btn-danger">Destroy</a>
+              <%= link_to 'Destroy', book, method: :delete, data: { turbo_confirm: 'Are you sure?'}, class:"btn btn-danger" %>
             </center>
           </div>
         </div>
